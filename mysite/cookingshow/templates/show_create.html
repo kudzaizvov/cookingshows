@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.show_name.id_for_label }}">Show Name:</label>
+        {{ form.show_name }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.show_date.id_for_label }}">Show Date:</label>
+        {{ form.show_date }}
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a class="btn btn-secondary" href="{% url 'cookingshow:index' %}"> Cancel</a>
+  </form>
+
+{% endblock %}

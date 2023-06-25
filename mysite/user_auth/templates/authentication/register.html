@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Register</h3>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %}  class="alert alert-danger" role="alert"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.password.id_for_label }}">Password:</label>
+        {{ form.password }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.first_name.id_for_label }}">FirstName:</label>
+        {{ form.first_name }}
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+
+{% endblock %}

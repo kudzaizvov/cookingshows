@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h3>Login as User</h3>
+
+<form action="{% url 'user_auth:authenticate_user' %}" method="post">
+  {% csrf_token %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="alert alert-danger" role="alert" {% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <label>Username</label>
+  <input class='form-control' type="text" name="username" placeholder="Username" required />
+  <br/><br />
+  <label>Password</label>
+  <input type="password" name="password" placeholder="password" required class='form-control'/>
+  <br /><br />
+  <input type="submit" value="Login" class="btn-primary"/>
+</form>
+{% endblock %}

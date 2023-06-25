@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% if all_shows %}
+  <div class="content">
+    <div class="row">
+        <div class="col-md-4 mb-3 mb-sm-0">
+          <div class="card">
+            <img src="https://cdn.winsightmedia.com/platform/files/public/800x420/chef-demo-cooking-saucing-dish.jpg"  alt="Example Image" class="card-img-overlay img-fluid">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">
+                    Below are popular television programs that focuses on the art and techniques of cooking. 
+                    Cookings shows are hosted by a chef or a culinary expert, it aims to entertain and educate viewers about various 
+                    aspects of food preparation and culinary skills. These shows often feature delicious recipes,
+                    step-by-step cooking demonstrations, and insightful tips and tricks. With their engaging format and mouthwatering visuals, 
+                    cooking shows have become a source of inspiration for home cooks and food enthusiasts worldwide, 
+                    encouraging them to explore new flavors and improve their culinary abilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    {% for show in all_shows %}
+    <div class="col-md-6">
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'cookingshow:detail' show.id %}"> {{ show.show_name }} </a></h5>
+              <p class="card-text">Date of show:  {{ show.show_date }}</p>
+          </div>
+      </div>
+  </div>
+  <br>
+    {% endfor %}
+  </div>
+ 
+{% else %}
+<p>No shows are available.</p>
+{% endif %}
+<br>
+<a class="btn btn-primary" href="{% url 'cookingshow:create_show' %}"> Add Show </a>
+{% endblock %}
