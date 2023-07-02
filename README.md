@@ -44,7 +44,7 @@ Here are some screenshots of the Cooking Show project in action:
 *Cooking Show Details page with ingredients and instructions.*
 
 ## Credits
-This project was created by:
+This project was created by: @Kudzaizvovu
 
 
 Feel free to contribute to the project by submitting pull requests or reporting issues on the GitHub repository.
